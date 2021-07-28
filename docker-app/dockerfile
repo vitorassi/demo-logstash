@@ -1,0 +1,12 @@
+FROM fabric8/java-alpine-openjdk11-jre
+EXPOSE 8083:8083
+#ENV JAVA_OPTS= "-Xms64m -Xmx128m -XX:MaxPerSize=128m"
+
+copy *.jar /deployment/application.jar
+
+#entrypoint java -jar $JAVA_OPTS /deployment/application.jar
+entrypoint java -jar  /deployment/application.jar
+
+#RUN apk add --update tzdate
+
+##sudo docker build -t "demo-logstash" .
